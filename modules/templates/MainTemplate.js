@@ -27,11 +27,6 @@ export default function MainTemplate({
     e(
       'head',
       null,
-      // Global site tag (gtag.js) - Google Analytics
-      e('script', {
-        async: true,
-        src: 'https://www.googletagmanager.com/gtag/js?id=UA-140352188-1'
-      }),
       x(`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());

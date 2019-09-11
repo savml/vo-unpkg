@@ -1,6 +1,6 @@
 {
-  "name": "unpkg",
-  "private": true,
+  "name": "wx-unpkg",
+  "version": "1.0.3",
   "description": "The CDN for everything on npm",
   "scripts": {
     "build": "rollup -c",

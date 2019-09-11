@@ -304,53 +304,6 @@ export default function App({
             ) : null}
           </div>
         </div>
-
-        <footer
-          css={{
-            marginTop: '5rem',
-            background: 'black',
-            color: '#aaa'
-          }}
-        >
-          <div
-            css={{
-              maxWidth: maxContentWidth,
-              padding: '10px 20px',
-              margin: '0 auto',
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between'
-            }}
-          >
-            <p>&copy; {new Date().getFullYear()} UNPKG</p>
-            <p css={{ fontSize: '1.5rem' }}>
-              <a
-                title="Twitter"
-                href="https://twitter.com/unpkg"
-                css={{
-                  color: '#aaa',
-                  display: 'inline-block',
-                  ':hover': { color: 'white' }
-                }}
-              >
-                <TwitterIcon />
-              </a>
-              <a
-                title="GitHub"
-                href="https://github.com/mjackson/unpkg"
-                css={{
-                  color: '#aaa',
-                  display: 'inline-block',
-                  marginLeft: '1rem',
-                  ':hover': { color: 'white' }
-                }}
-              >
-                <GitHubIcon />
-              </a>
-            </p>
-          </div>
-        </footer>
       </Fragment>
     </PackageInfoProvider>
   );

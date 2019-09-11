@@ -1,0 +1,13 @@
+node_modules
+/modules
+/scripts
+/sponsors
+/*.yaml
+/*.sh
+/unpkg.sketch
+/secrets.tar.enc
+/.*
+/plugins
+/SPONSORS.md
+/jest.config.js
+/rollup.config.js
