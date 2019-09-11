@@ -1,17 +1,14 @@
-<h1 align="center">UNPKG</h1>
+wx-unpkg
 
-<p align="center">
-  <a title="Travis Build" href="https://travis-ci.org/mjackson/unpkg">
-    <img alt="Travis Build Badge" src="https://img.shields.io/travis/mjackson/unpkg/master.svg?style=flat-square" />
-  </a>
-</p>
+1  获取下载地址
+npm info wx-unpkg | grep tarball
 
-[UNPKG](https://unpkg.com) is a fast, global [content delivery network](https://en.wikipedia.org/wiki/Content_delivery_network) for everything on [npm](https://www.npmjs.com/).
+2 下载解压后执行安装
+npm i --production
 
-### Documentation
+3 运行
+export NPM_REGISTRY_URL=http://npm.visionacademy.cn/
+export NODE_ENV=production
+export PORT=你给的端口
 
-Please visit [the UNPKG website](https://unpkg.com) to learn more about how to use it.
-
-### Sponsors
-
-Our sponsors and backers are listed [in SPONSORS.md](SPONSORS.md).
+pm2 启动下server
