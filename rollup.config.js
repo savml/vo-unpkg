@@ -9,6 +9,7 @@ const json = require('rollup-plugin-json');
 const replace = require('rollup-plugin-replace');
 const resolve = require('rollup-plugin-node-resolve');
 const url = require('rollup-plugin-url');
+// const buitins = require('rollup-plugin-node-builtins')
 
 const entryManifest = require('./plugins/entryManifest');
 const pkg = require('./package.json');
@@ -19,7 +20,7 @@ const manifest = entryManifest();
 
 const client = ['browse', 'main'].map(entryName => {
   return {
-    external: ['@emotion/core', 'react', 'react-dom'],
+    external: ['@emotion/core', 'react', 'react-dom', 'path', 'util'],
     input: `modules/client/${entryName}.js`,
     output: {
       format: 'iife',
@@ -83,13 +84,13 @@ const server = {
     }),
     replace({
       'process.env.CLOUDFLARE_EMAIL': JSON.stringify(
-        process.env.CLOUDFLARE_EMAIL
+        process.env.CLOUDFLARE_EMAIL || 'CLOUDFLARE_EMAIL'
       ),
-      'process.env.CLOUDFLARE_KEY': JSON.stringify(process.env.CLOUDFLARE_KEY),
+      'process.env.CLOUDFLARE_KEY': JSON.stringify(process.env.CLOUDFLARE_KEY || 'CLOUDFLARE_KEY'),
       // 'process.env.NPM_REGISTRY_URL': JSON.stringify(
       //   process.env.NPM_REGISTRY_URL
       // ),
-      'process.env.ORIGIN': JSON.stringify(process.env.ORIGIN)
+      'process.env.ORIGIN': JSON.stringify(process.env.ORIGIN || 'ORIGIN')
     })
   ]
 };

@@ -48,7 +48,7 @@ function getRelName(path, base) {
   return path.substr(base.length > 1 ? base.length + 1 : 1);
 }
 
-export default function DirectoryViewer({ path, details: entries }) {
+export default function DirectoryViewer({ path, details: entries, config, filter }) {
   const rows = [];
 
   if (path !== '/') {
@@ -61,6 +61,7 @@ export default function DirectoryViewer({ path, details: entries }) {
           </a>
         </td>
         <td css={tableCellStyle}></td>
+        <td css={typeCellStyle}></td>
         <td css={typeCellStyle}></td>
       </tr>
     );
@@ -98,6 +99,7 @@ export default function DirectoryViewer({ path, details: entries }) {
         </td>
         <td css={tableCellStyle}>-</td>
         <td css={typeCellStyle}>-</td>
+        <td css={typeCellStyle}>{path + dirname}--{filter(path + dirname)}</td>
       </tr>
     );
   });
@@ -120,6 +122,7 @@ export default function DirectoryViewer({ path, details: entries }) {
           </td>
           <td css={tableCellStyle}>{formatBytes(size)}</td>
           <td css={typeCellStyle}>{contentType}</td>
+          <td css={typeCellStyle}>{path + filename}--{filter(path + filename)}</td>
         </tr>
       );
     });

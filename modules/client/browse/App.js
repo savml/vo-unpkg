@@ -11,6 +11,7 @@ import FileViewer from './FileViewer.js';
 import { TwitterIcon, GitHubIcon } from './Icons.js';
 
 import SelectDownArrow from './images/SelectDownArrow.png';
+import {createConfig, createFilter} from '../utils/config';
 
 const globalStyles = css`
   html {
@@ -176,6 +177,10 @@ export default function App({
   // TODO: Provide a user pref to go full width?
   const maxContentWidth = 940;
 
+  let config = createConfig({
+    exclude: '*.md'
+  })
+
   return (
     <PackageInfoProvider
       packageName={packageName}
@@ -298,7 +303,7 @@ export default function App({
             }}
           >
             {target.type === 'directory' ? (
-              <DirectoryViewer path={target.path} details={target.details} />
+              <DirectoryViewer config={config} filter={createFilter(config)} path={target.path} details={target.details} />
             ) : target.type === 'file' ? (
               <FileViewer path={target.path} details={target.details} />
             ) : null}
