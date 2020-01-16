@@ -132,7 +132,7 @@ export default function App() {
               fontSize: '5em'
             }}
           >
-            vision unpkg
+            vo-unpkg
           </h1>
 
           <p>

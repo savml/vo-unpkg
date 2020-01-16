@@ -55,12 +55,13 @@ async function fetchPackageInfo(packageName, log) {
 
   log.debug('Fetching package info for %s from %s', packageName, infoURL);
 
-  const { protocol, hostname, pathname } = url.parse(infoURL);
+  const { protocol, hostname, pathname, port } = url.parse(infoURL);
   const isHttp = protocol === 'http:'
   const options = {
     agent: isHttp ? httpAgent : agent,
     hostname: hostname,
     path: pathname,
+    port,
     headers: {
       Accept: 'application/json'
     }
@@ -183,12 +184,13 @@ export async function getPackage(packageName, version, log) {
 
   log.debug('Fetching package for %s from %s', packageName, tarballURL);
 
-  const { protocol, hostname, pathname } = url.parse(tarballURL);
+  const { protocol, hostname, pathname, port } = url.parse(tarballURL);
   const isHttp = protocol === 'http:'
   const options = {
     agent: isHttp ? httpAgent : agent,
     hostname: hostname,
-    path: pathname
+    path: pathname,
+    port,
   };
 
   const res = await get(options, isHttp);

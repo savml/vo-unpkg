@@ -1,6 +1,6 @@
 {
   "name": "vo-unpkg",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "The CDN for everything on npm",
   "scripts": {
     "build": "rollup -c",
@@ -9,6 +9,9 @@
     "serve": "nodemon -w server.js server.js",
     "test": "jest",
     "watch": "rollup -c -w"
+  },
+  "bin": {
+    "unpkg": "./bin/unpkg"
   },
   "dependencies": {
     "@babel/core": "^7.6.0",
